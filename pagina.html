@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esp8266</title>
+
+</head>
+<style>
+    button {
+        height: 150px;
+        width: 156px;
+        background: green;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    input {
+        height: 50px;
+        width: 250px;
+        border-radius: 5px;
+    }
+</style>
+
+<body>
+    <button onclick="obterDados()">Obter Dados</button>
+    <label for="temperatura">Temperatura</label>
+    <input type="text" name="temperatura" id="temperatura">
+    <label for="umidade">Umidade</label>
+    <input type="text" name="umidade" id="umidade">
+    <script>
+        function obterDados() {
+            fetch('http://192.168.1.51/')
+                .then(response => {
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById('temperatura').value = data.temperatura;
+                    document.getElementById('umidade').value = data.umidade;
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+        }
+    </script>
+</body>
+
+</html>
