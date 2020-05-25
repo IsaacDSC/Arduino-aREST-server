@@ -4,32 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <title>Esp8266</title>
 
 </head>
 <style>
-    button {
-        height: 150px;
-        width: 156px;
-        background: green;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
+    .card {
+        border: 1px black solid;
+        height: 400px;
+        width: 50%;
+        margin-left: 25%;
+        margin-top: 6%;
     }
     
-    input {
-        height: 50px;
-        width: 250px;
-        border-radius: 5px;
+    h1 {
+        text-align: center;
     }
 </style>
 
 <body>
-    <button onclick="obterDados()">Obter Dados</button>
-    <label for="temperatura">Temperatura</label>
-    <input type="text" name="temperatura" id="temperatura">
-    <label for="umidade">Umidade</label>
-    <input type="text" name="umidade" id="umidade">
+    <h1 class="mt-5">Ola seja Bem vindo !</h1>
+    <div class="card">
+        <div class="container mt-4">
+            <div class="form-group">
+                <label for="temperatura">Temperatura</label>
+                <input type="text" name="temperatura" id="temperatura" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="umidade">Umidade</label>
+                <input type="text " name="umidade " id="umidade" class="form-control ">
+            </div>
+            <button class="btn btn-success " onclick="obterDados() ">Obter Dados</button>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js "></script>
     <script>
         function obterDados() {
             fetch('http://192.168.1.51/')
